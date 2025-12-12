@@ -6,22 +6,22 @@ import Pagination from "@/layout/Pagination.vue";
 const form = useForm({});
 
 const props = defineProps({
-    users: Object,
+    products: Object,
     searchTerm: String
 });
-
-const deletingUserId = ref(null);
+const deletingProductId = ref(null);
 
 const search = ref(props.searchTerm || '');
 watch(search, debounce((query) => {
-    router.get('/users', {search: query}, {preserveState: true});
+    router.get('/products', {search: query}, {preserveState: true});
 }, 1000));
-const deleteUser = (user) => {
-    if (confirm(`Are you sure you want to delete "${user.name}"?`)) {
-        deletingUserId.value = user.id;
-        router.delete('/users/'+user.id, {
+
+const deleteProduct = (product) => {
+    if (confirm(`Are you sure you want to delete "${product.name}"?`)) {
+        deletingProductId.value = product.id;
+        router.delete('/products/'+product.id, {
             preserveScroll: true,
-            onFinish: () => deletingUserId.value = null
+            onFinish: () => deletingProductId.value = null
         });
     }
 };
@@ -38,18 +38,18 @@ const formatDate = (dateString) => {
 </script>
 
 <template>
-    <Head title="Users - "/>
+    <Head title="Products - "/>
     <div class="bg-white p-6">
         <div class="flex justify-between items-center mb-6 border-b border-gray-200">
             <div>
-                <h1 class="text-3xl font-bold mb-4">Welcome to the users Page ({{ users.meta.total }})</h1>
-                <p class="text-gray-700">This is the users page on the Inertia Challenge application.</p>
+                <h1 class="text-3xl font-bold mb-4">Welcome to the products Page ({{ products.meta.total }})</h1>
+                <p class="text-gray-700">This is the products page of the Inertia Challenge application.</p>
             </div>
             <div class="relative w-full max-w-xs lg:max-w-sm mr-4">
                 <input
                     v-model="search"
                     type="text"
-                    placeholder="Search by name or email..."
+                    placeholder="Search by name or description..."
                     class="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm lg:text-base"
                 />
                 <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,7 +57,7 @@ const formatDate = (dateString) => {
                 </svg>
             </div>
             <div>
-                <Link href="/users/create" class="btn btn-primary mt-4">Create New User</Link>
+                <Link href="/products/create" class="btn btn-primary mt-4">Create New Product</Link>
             </div>
         </div>
 
@@ -67,38 +67,29 @@ const formatDate = (dateString) => {
                 <thead>
                 <tr>
                     <th>S/N</th>
-                    <th>Image</th>
                     <th>Name</th>
-                    <th>Email Address</th>
-                    <th>Registration Date</th>
-                    <th>Last Update</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Description</th>
                     <th class="text-center">Action</th>
                 </tr>
                 </thead>
                 <tbody>
                 <!-- row -->
-                <tr v-for="(user, i) in users.data" :key="i">
+                <tr v-for="(product, i) in products.data" :key="i">
                     <th>{{ i + 1 }}.</th>
                     <td>
-                        <div class="avatar">
-                            <div class="mask mask-squircle h-8 w-8">
-                                <img v-if="user.image_path" :src="`/storage/${user.image_path}`" alt="Avatar"/>
-                                <img v-else src="https://img.daisyui.com/images/profile/demo/2@94.webp" alt="Avatar"/>
-                            </div>
-                        </div>
+                        <div class="font-bold">{{ product.name }}</div>
+                    </td>
+                    <td>{{ product.price }}</td>
+                    <td>
+                        {{ product.category.name }}
                     </td>
                     <td>
-                        <div class="font-bold">{{ user.name }}</div>
-                    </td>
-                    <td>{{ user.email }}</td>
-                    <td>
-                        {{ formatDate(user.created_at) }}
-                    </td>
-                    <td>
-                        {{ formatDate(user.updated_at) }}
+                        {{ product.description }}
                     </td>
                     <td class="text-right">
-                        <Link :href="`/users/${ user.id }`" class="btn btn-sm btn-primary me-1">
+                        <Link :href="`/products/${ product.id }`" class="btn btn-sm btn-primary me-1">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                                  class="size-4">
                                 <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"/>
@@ -108,7 +99,7 @@ const formatDate = (dateString) => {
                             </svg>
                             Details
                         </Link>
-                        <Link :href="`/users/${ user.id }/edit`" class="btn btn-sm btn-info me-1">
+                        <Link :href="`/products/${ product.id }/edit`" class="btn btn-sm btn-info me-1">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
                                  class="size-4">
                                 <path
@@ -118,8 +109,8 @@ const formatDate = (dateString) => {
                             </svg>
                             Edit
                         </Link>
-                        <button class="btn btn-sm btn-error" @click="deleteUser(user)" :disabled="form.processing && deletingUserId === user.id">
-                            <span v-if="form.processing && deletingUserId === user.id">
+                        <button class="btn btn-sm btn-error" @click="deleteProduct(product)" :disabled="form.processing && deletingProductId === product.id">
+                            <span v-if="form.processing && deletingProductId === product.id">
                                 <span class="loading loading-spinner"></span> Deleting...
                             </span>
                             <span v-else class="flex items-center gap-2">
@@ -134,7 +125,7 @@ const formatDate = (dateString) => {
                 </tbody>
             </table>
             <div>
-                <Pagination :links="users.meta.links" :from="users.meta.from" :to="users.meta.to" :total="users.meta.total" class="mt-6"/>
+                <Pagination :links="products.meta.links" :from="products.meta.from" :to="products.meta.to" :total="products.meta.total" class="mt-6"/>
             </div>
         </div>
     </div>
