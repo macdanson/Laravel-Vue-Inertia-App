@@ -17,6 +17,7 @@ class PostController extends Controller
         $posts = Post::with(['category','comments'])->when($request->search, function ($query) use ($request) {
             $query->whereAny(['title', 'content'], 'like', '%' . $request->search . '%');
         })->latest()->paginate()->withQueryString();
+
         return inertia('posts/Index', [
             'posts' => PostResource::collection($posts),
             'searchTerm' => $request->search,

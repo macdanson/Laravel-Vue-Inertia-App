@@ -54,7 +54,7 @@ const deleteComment = (comment) => {
                     <!-- Post Meta -->
                     <div class="flex justify-between items-center mb-4">
                         <span class="text-sm font-medium text-primary-600">{{ i+1 }} - {{ post.category }}</span>
-                        <span class="text-sm text-gray-500">{{ post.date }}</span>
+                        <span class="text-sm text-gray-500">{{ post.time }}</span>
                     </div>
 
                     <!-- Post Title & Excerpt -->
@@ -106,7 +106,7 @@ const deleteComment = (comment) => {
             </article>
         </div>
         <div>
-            <Pagination :links="posts.meta.links" :from="posts.meta.from" :to="posts.meta.to" :total="posts.meta.total" class="mt-6"/>
+            <Pagination :metaData="posts.meta" class="mt-6"/>
         </div>
     </div>
 </template>

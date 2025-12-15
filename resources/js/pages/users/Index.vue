@@ -16,6 +16,7 @@ const search = ref(props.searchTerm || '');
 watch(search, debounce((query) => {
     router.get('/users', {search: query}, {preserveState: true});
 }, 1000));
+
 const deleteUser = (user) => {
     if (confirm(`Are you sure you want to delete "${user.name}"?`)) {
         deletingUserId.value = user.id;
@@ -134,7 +135,7 @@ const formatDate = (dateString) => {
                 </tbody>
             </table>
             <div>
-                <Pagination :links="users.meta.links" :from="users.meta.from" :to="users.meta.to" :total="users.meta.total" class="mt-6"/>
+                <Pagination :metaData="users.meta" class="mt-6"/>
             </div>
         </div>
     </div>

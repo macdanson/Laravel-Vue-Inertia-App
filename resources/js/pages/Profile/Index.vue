@@ -25,7 +25,7 @@
                         <h2 class="text-lg lg:text-xl font-bold text-gray-800">Profile Information</h2>
                         <p class="text-xs lg:text-sm text-gray-600 mt-1">Update your account's profile information and email address.</p>
                     </div>
-                    <div class="flex-shrink-0 w-16 h-16 lg:w-20 lg:h-20 bg-emerald-100 rounded-full flex items-center justify-center">
+                    <div class="shrink-0 w-16 h-16 lg:w-20 lg:h-20 bg-emerald-100 rounded-full flex items-center justify-center">
                       <span class="text-2xl lg:text-3xl font-bold text-emerald-600">
 <!--                        {{ user.name.charAt(0).toUpperCase() }}-->
                           <img v-if="user.image_path" :src="`/storage/${user.image_path}`" alt="Avatar"/>

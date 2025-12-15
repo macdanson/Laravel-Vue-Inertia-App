@@ -17,6 +17,7 @@ class ProductController extends Controller
         $products = Product::with('category')->when($request->search, function ($query) use ($request) {
             $query->whereAny(['name', 'description'], 'like', '%' . $request->search . '%');
         })->latest()->paginate()->withQueryString();
+
         return inertia('products/Index', [
             'products' => ProductResource::collection($products),
             'searchTerm' => $request->search

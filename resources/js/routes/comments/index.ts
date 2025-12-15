@@ -1,7 +1,7 @@
 import { queryParams, type RouteQueryOptions, type RouteDefinition, applyUrlDefaults } from './../../wayfinder'
 /**
 * @see \App\Http\Controllers\PostController::destroy
- * @see app/Http/Controllers/PostController.php:74
+ * @see app/Http/Controllers/PostController.php:75
  * @route '/comments/{comment}'
  */
 export const destroy = (args: { comment: number | { id: number } } | [comment: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -16,7 +16,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\PostController::destroy
- * @see app/Http/Controllers/PostController.php:74
+ * @see app/Http/Controllers/PostController.php:75
  * @route '/comments/{comment}'
  */
 destroy.url = (args: { comment: number | { id: number } } | [comment: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions) => {
@@ -49,7 +49,7 @@ destroy.url = (args: { comment: number | { id: number } } | [comment: number | {
 
 /**
 * @see \App\Http\Controllers\PostController::destroy
- * @see app/Http/Controllers/PostController.php:74
+ * @see app/Http/Controllers/PostController.php:75
  * @route '/comments/{comment}'
  */
 destroy.delete = (args: { comment: number | { id: number } } | [comment: number | { id: number } ] | number | { id: number }, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({

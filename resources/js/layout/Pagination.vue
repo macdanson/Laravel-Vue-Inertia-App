@@ -1,5 +1,5 @@
 <template>
-    <div v-if="links.length > 3" class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
+    <div v-if="props.metaData.links.length > 3" class="flex items-center justify-between border-t border-gray-200 bg-white px-4 py-3 sm:px-6">
         <div class="sm:flex sm:flex-1 sm:items-center sm:justify-between">
             <div>
                 <p class="text-sm text-gray-700">
@@ -30,7 +30,7 @@
                     </span>
 
                     <!-- Page Numbers -->
-                    <template v-for="(link, index) in links" :key="index">
+                    <template v-for="(link, index) in props.metaData.links" :key="index">
                         <Link v-if="link.url && !link.label.includes('Previous') && !link.label.includes('Next')" :href="link.url" :class="[
                             link.active ? 'relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
                             : 'relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0',]" preserve-scroll
@@ -62,31 +62,21 @@ import { Link } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
 const props = defineProps({
-    links: {
-        type: Array,
-        required: true,
-    },
-    from: {
-        type: Number,
-        default: 0,
-    },
-    to: {
-        type: Number,
-        default: 0,
-    },
-    total: {
-        type: Number,
-        default: 0,
-    },
+    metaData: Object,
 });
 
+const from = props.metaData.from
+const to = props.metaData.to
+const total = props.metaData.total
+
+
 const prevUrl = computed(() => {
-    const prevLink = props.links.find(link => link.label.includes('Previous'));
+    const prevLink = props.metaData.links.find(link => link.label.includes('Previous'));
     return prevLink?.url;
 });
 
 const nextUrl = computed(() => {
-    const nextLink = props.links.find(link => link.label.includes('Next'));
+    const nextLink = props.metaData.links.find(link => link.label.includes('Next'));
     return nextLink?.url;
 });
 </script>

@@ -9,6 +9,7 @@ const props = defineProps({
     products: Object,
     searchTerm: String
 });
+
 const deletingProductId = ref(null);
 
 const search = ref(props.searchTerm || '');
@@ -125,7 +126,7 @@ const formatDate = (dateString) => {
                 </tbody>
             </table>
             <div>
-                <Pagination :links="products.meta.links" :from="products.meta.from" :to="products.meta.to" :total="products.meta.total" class="mt-6"/>
+                <Pagination :metaData="products.meta" class="mt-6"/>
             </div>
         </div>
     </div>

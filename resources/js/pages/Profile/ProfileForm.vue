@@ -13,7 +13,9 @@ const form = useForm({
 </script>
 
 <template>
-    <form @submit.prevent="form.patch('/profile',{ preserveScroll: true })" class="space-y-4 lg:space-y-6">
+    <form @submit.prevent="form.patch('/profile',{ preserveScroll: true, onSuccess: () => {
+                    form.reset('image');
+                } })" class="space-y-4 lg:space-y-6">
         <!-- Name -->
         <div>
             <label for="name" class="block text-sm font-medium text-gray-700 mb-2">

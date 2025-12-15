@@ -23,6 +23,7 @@ class PostResource extends JsonResource
             'body' => $this->content,
             'author' => $this->author->only('name', 'email', 'image_path'),
             'date' => Carbon::parse($this->created_at)->format('M j, Y'),
+            'time' => Carbon::parse($this->created_at)->diffForHumans(),
             'comments' => PostCommentResource::collection($this->whenLoaded('comments')),
             'category' => $this->category->name,
         ];

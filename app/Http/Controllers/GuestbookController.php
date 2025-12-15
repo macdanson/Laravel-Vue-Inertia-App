@@ -16,6 +16,7 @@ class GuestbookController extends Controller
         $signature = Guestbook::when($request->search, function ($query) use ($request) {
             $query->whereAny(['name', 'email','message'], 'like', '%' . $request->search . '%');
         })->latest()->paginate()->withQueryString();
+
         return inertia('Guestbook/Index', [
             'signatures' => SignatureResource::collection($signature),
             'searchTerm' => $request->search,

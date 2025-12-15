@@ -175,7 +175,7 @@ const form = useForm({
 
             <!-- Table Footer -->
             <div>
-                <Pagination :links="signatures.meta.links" :from="signatures.meta.from" :to="signatures.meta.to" :total="signatures.meta.total" class="mt-6"/>
+                <Pagination :metaData="signatures.meta" class="mt-6"/>
             </div>
         </div>
     </div>

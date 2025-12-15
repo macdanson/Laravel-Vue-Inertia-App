@@ -44,7 +44,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestbookController::create
- * @see app/Http/Controllers/GuestbookController.php:28
+ * @see app/Http/Controllers/GuestbookController.php:29
  * @route '/signatures/create'
  */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -59,7 +59,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestbookController::create
- * @see app/Http/Controllers/GuestbookController.php:28
+ * @see app/Http/Controllers/GuestbookController.php:29
  * @route '/signatures/create'
  */
 create.url = (options?: RouteQueryOptions) => {
@@ -68,7 +68,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\GuestbookController::create
- * @see app/Http/Controllers/GuestbookController.php:28
+ * @see app/Http/Controllers/GuestbookController.php:29
  * @route '/signatures/create'
  */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -77,7 +77,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 })
 /**
 * @see \App\Http\Controllers\GuestbookController::create
- * @see app/Http/Controllers/GuestbookController.php:28
+ * @see app/Http/Controllers/GuestbookController.php:29
  * @route '/signatures/create'
  */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -87,7 +87,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestbookController::store
- * @see app/Http/Controllers/GuestbookController.php:36
+ * @see app/Http/Controllers/GuestbookController.php:37
  * @route '/signatures'
  */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -102,7 +102,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestbookController::store
- * @see app/Http/Controllers/GuestbookController.php:36
+ * @see app/Http/Controllers/GuestbookController.php:37
  * @route '/signatures'
  */
 store.url = (options?: RouteQueryOptions) => {
@@ -111,7 +111,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\GuestbookController::store
- * @see app/Http/Controllers/GuestbookController.php:36
+ * @see app/Http/Controllers/GuestbookController.php:37
  * @route '/signatures'
  */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -121,7 +121,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\GuestbookController::show
- * @see app/Http/Controllers/GuestbookController.php:52
+ * @see app/Http/Controllers/GuestbookController.php:53
  * @route '/signatures/{signature}'
  */
 export const show = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -136,7 +136,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestbookController::show
- * @see app/Http/Controllers/GuestbookController.php:52
+ * @see app/Http/Controllers/GuestbookController.php:53
  * @route '/signatures/{signature}'
  */
 show.url = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -164,7 +164,7 @@ show.url = (args: { signature: string | number } | [signature: string | number ]
 
 /**
 * @see \App\Http\Controllers\GuestbookController::show
- * @see app/Http/Controllers/GuestbookController.php:52
+ * @see app/Http/Controllers/GuestbookController.php:53
  * @route '/signatures/{signature}'
  */
 show.get = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -173,7 +173,7 @@ show.get = (args: { signature: string | number } | [signature: string | number ]
 })
 /**
 * @see \App\Http\Controllers\GuestbookController::show
- * @see app/Http/Controllers/GuestbookController.php:52
+ * @see app/Http/Controllers/GuestbookController.php:53
  * @route '/signatures/{signature}'
  */
 show.head = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -183,7 +183,7 @@ show.head = (args: { signature: string | number } | [signature: string | number 
 
 /**
 * @see \App\Http\Controllers\GuestbookController::edit
- * @see app/Http/Controllers/GuestbookController.php:60
+ * @see app/Http/Controllers/GuestbookController.php:61
  * @route '/signatures/{signature}/edit'
  */
 export const edit = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -198,7 +198,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestbookController::edit
- * @see app/Http/Controllers/GuestbookController.php:60
+ * @see app/Http/Controllers/GuestbookController.php:61
  * @route '/signatures/{signature}/edit'
  */
 edit.url = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -226,7 +226,7 @@ edit.url = (args: { signature: string | number } | [signature: string | number ]
 
 /**
 * @see \App\Http\Controllers\GuestbookController::edit
- * @see app/Http/Controllers/GuestbookController.php:60
+ * @see app/Http/Controllers/GuestbookController.php:61
  * @route '/signatures/{signature}/edit'
  */
 edit.get = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -235,7 +235,7 @@ edit.get = (args: { signature: string | number } | [signature: string | number ]
 })
 /**
 * @see \App\Http\Controllers\GuestbookController::edit
- * @see app/Http/Controllers/GuestbookController.php:60
+ * @see app/Http/Controllers/GuestbookController.php:61
  * @route '/signatures/{signature}/edit'
  */
 edit.head = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -245,7 +245,7 @@ edit.head = (args: { signature: string | number } | [signature: string | number 
 
 /**
 * @see \App\Http\Controllers\GuestbookController::update
- * @see app/Http/Controllers/GuestbookController.php:68
+ * @see app/Http/Controllers/GuestbookController.php:69
  * @route '/signatures/{signature}'
  */
 export const update = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -260,7 +260,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestbookController::update
- * @see app/Http/Controllers/GuestbookController.php:68
+ * @see app/Http/Controllers/GuestbookController.php:69
  * @route '/signatures/{signature}'
  */
 update.url = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -288,7 +288,7 @@ update.url = (args: { signature: string | number } | [signature: string | number
 
 /**
 * @see \App\Http\Controllers\GuestbookController::update
- * @see app/Http/Controllers/GuestbookController.php:68
+ * @see app/Http/Controllers/GuestbookController.php:69
  * @route '/signatures/{signature}'
  */
 update.put = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -297,7 +297,7 @@ update.put = (args: { signature: string | number } | [signature: string | number
 })
 /**
 * @see \App\Http\Controllers\GuestbookController::update
- * @see app/Http/Controllers/GuestbookController.php:68
+ * @see app/Http/Controllers/GuestbookController.php:69
  * @route '/signatures/{signature}'
  */
 update.patch = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -307,7 +307,7 @@ update.patch = (args: { signature: string | number } | [signature: string | numb
 
 /**
 * @see \App\Http\Controllers\GuestbookController::destroy
- * @see app/Http/Controllers/GuestbookController.php:76
+ * @see app/Http/Controllers/GuestbookController.php:77
  * @route '/signatures/{signature}'
  */
 export const destroy = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -322,7 +322,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\GuestbookController::destroy
- * @see app/Http/Controllers/GuestbookController.php:76
+ * @see app/Http/Controllers/GuestbookController.php:77
  * @route '/signatures/{signature}'
  */
 destroy.url = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -350,7 +350,7 @@ destroy.url = (args: { signature: string | number } | [signature: string | numbe
 
 /**
 * @see \App\Http\Controllers\GuestbookController::destroy
- * @see app/Http/Controllers/GuestbookController.php:76
+ * @see app/Http/Controllers/GuestbookController.php:77
  * @route '/signatures/{signature}'
  */
 destroy.delete = (args: { signature: string | number } | [signature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
